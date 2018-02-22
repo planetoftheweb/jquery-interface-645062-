@@ -20,7 +20,7 @@
 <div id="main-app">
 
   <div class="card textcenter mt-3">
-    <div class="card-header bg-primary text-white">
+    <div class="apt-addheading card-header bg-primary text-white">
       <i class="fas fa-plus"></i> Add Appointment
     </div><!-- card-header -->
 
@@ -80,7 +80,7 @@
     </div><!-- card-body -->
   </div><!-- card-primary -->
 
-  <div class="row search-appointments justify-content-center my-3">
+  <div class="search-appointments row justify-content-center my-4">
     <div class="col-md-6">
       <div class="input-group">
         <input id="SearchApts" placeholder="Search" type="text" class="form-control" aria-label="Search Appointments"
@@ -109,7 +109,7 @@
     </div><!-- col-md-offset-3 --> 
   </div><!-- search-appointments -->
 
-  <div id="petList" class="item-list mb-3">
+  <div id="petList" class="appointment-list item-list mb-3">
 
   </div><!-- appointment-list -->
 
@@ -130,37 +130,9 @@
       </div><!-- col-md-6 -->
     </footer><!-- footer -->
 
-    <!-- Template -->
-    <script type="text/html" id="template">
-      <div class="pet-item col media">
-        <div class="mr-3">
-          <button class="pet-delete btn btn-sm btn-danger">
-          <i class="fas fa-times"></i></button>
-        </div><!-- media-left -->
-
-        <div class="pet-info media-body">
-
-          <div class="pet-head d-flex">
-            <span class="pet-name" contenteditable="true"
-              data-content="petName"></span>
-            <span class="apt-date ml-auto"
-              data-content="formattedDate"></span>
-          </div><!-- pet-head -->
-
-          <div class="owner-name">
-            <span>Owner:</span>
-            <span contenteditable="true"
-              data-content="petOwner"></span>
-          </div>
-          <div class="apt-notes" contenteditable="true"
-            data-content="aptNotes"></div>
-
-        </div><!-- pet-info -->
-      </div><!-- pet-item -->
-    </script>
-
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/jquery.loadTemplate.min.js"></script>
+    <script src="js/lib/jquery-dateFormat.min.js"></script>
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib//bootstrap.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
