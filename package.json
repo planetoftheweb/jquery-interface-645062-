@@ -1,0 +1,10 @@
+{
+  "name": "jqueryinterface",
+  "description": "Repo for my course on building a jQuery interface",
+  "version": "1.0.0",
+  "scripts": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}

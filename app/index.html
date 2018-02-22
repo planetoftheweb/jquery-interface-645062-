@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Building an Interface with jQuery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script defer src="js/lib/fontawesome-all.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="bg-primary">
+    <header class="container text-white"><h4 class="py-2">Wisdom Pet Medicine</h4></header>
+    <div class="main bg-white">
+      <main class="page" id="petratings">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+
+<!-- App Starts Here -->
+<div id="main-app">
+
+  <div class="card textcenter mt-3">
+    <div class="card-header bg-primary text-white">
+      <i class="fas fa-plus"></i> Add Appointment
+    </div><!-- card-header -->
+
+    <div class="card-body">
+
+      <form class="add-appointment">
+
+        <div class="form-group form-row">
+          <label for="inputEmail3" class="col-md-2 col-form-label text-md-right">Email</label>
+          <div class="col-md-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+      
+        <div class="form-group form-row">
+          <label class="col-md-2 col-form-label text-md-right" for="petName">Pet Name</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="petName" placeholder="Pet's Name">
+          </div><!-- col-md-10 --> 
+        </div><!-- form-group --> 
+
+        <div class="form-group form-row">
+          <label class="col-md-2 col-form-label text-md-right" for="petOwner">Pet Owner</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control"
+              id="petOwner" placeholder="Owner's Name" 
+              v-model="formData.petOwner">
+          </div><!-- col-md-10 -->
+        </div><!-- form-group --> 
+
+        <div class="form-group form-row">
+          <label class="col-md-2 col-form-label text-md-right" for="aptDate">Date</label>
+          <div class="col-md-4">
+            <input type="date" class="form-control" id="aptDate">
+          </div><!-- col-md-4 --> 
+          <label class="col-md-2 col-form-label text-md-right" for="aptTime">Time</label>
+          <div class="col-md-4">
+            <input type="time" class="form-control" id="aptTime" >
+          </div><!-- col-md-4 --> 
+        </div><!-- form-group -->
+
+        <div class="form-group form-row">
+          <label class="col-md-2 text-md-right" for="aptNotes">Apt. Notes</label>
+          <div class="col-md-10">
+            <textarea class="form-control" rows="4" cols="50" id="aptNotes" placeholder="Appointment Notes" 
+            v-model="formData.aptNotes"></textarea>
+          </div><!-- col-md-10 --> 
+        </div><!-- form-group -->
+
+        <div class="form-group form-row mb-0">
+          <div class="offset-md-2 col-md-10">
+            <button type="submit" class="btn btn-primary d-block ml-auto">Add Appointment</button>
+          </div><!-- col-md-offset-2 --> 
+        </div><!-- form-group -->
+
+      </form>
+    </div><!-- card-body -->
+  </div><!-- card-primary -->
+
+  <div class="row search-appointments justify-content-center my-3">
+    <div class="col-md-6">
+      <div class="input-group">
+        <input id="SearchApts" placeholder="Search" type="text" class="form-control" aria-label="Search Appointments"
+          v-model="searchTerm">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-primary dropdown-toggle"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by: <span class="caret"></span>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-right">
+
+            <a class="dropdown-item" href="#" id="petName">Pet Name <i class="fas fa-check"></i></a>
+
+            <a class="dropdown-item" href="#" id="aptDate">Date <i class="fas fa-check"></i></a>
+
+            <a class="dropdown-item" href="#" id="ownerName">Owner <i class="fas fa-check"></i></a>
+
+            <div role="separator" class="dropdown-divider"></div>
+
+            <a class="dropdown-item" href="#" id="asc">Asc <i class="fas fa-check"></i></a>
+
+            <a class="dropdown-item" href="#" id="desc">Desc <i class="fas fa-check"></i></a>
+          </ul>
+        </div><!-- input-group-btn --> 
+      </div><!-- input-group --> 
+    </div><!-- col-md-offset-3 --> 
+  </div><!-- search-appointments -->
+
+  <div id="petList" class="item-list mb-3">
+
+  </div><!-- appointment-list -->
+
+</div><!-- main-app -->
+<!-- App Ends Here -->
+
+            </div><!-- col-md-12 -->
+          </div><!-- row -->
+        </div><!-- container -->
+      </div><!-- petratings page -->
+    </main><!-- main -->
+
+    <footer class="container d-flex text-white py-2">
+        <p>All contents &copy; 2018 <a href="http://lynda.com">Lynda.com</a>. All rights reserved.</p>
+      <div class="ml-auto">
+        <a class="d-block" href="#">Terms of use</a>
+        <a class="d-block" href="#">Privacy policy</a>
+      </div><!-- col-md-6 -->
+    </footer><!-- footer -->
+
+    <!-- Template -->
+    <script type="text/html" id="template">
+      <div class="pet-item col media">
+        <div class="mr-3">
+          <button class="pet-delete btn btn-sm btn-danger">
+          <i class="fas fa-times"></i></button>
+        </div><!-- media-left -->
+
+        <div class="pet-info media-body">
+
+          <div class="pet-head d-flex">
+            <span class="pet-name" contenteditable="true"
+              data-content="petName"></span>
+            <span class="apt-date ml-auto"
+              data-content="formattedDate"></span>
+          </div><!-- pet-head -->
+
+          <div class="owner-name">
+            <span>Owner:</span>
+            <span contenteditable="true"
+              data-content="petOwner"></span>
+          </div>
+          <div class="apt-notes" contenteditable="true"
+            data-content="aptNotes"></div>
+
+        </div><!-- pet-info -->
+      </div><!-- pet-item -->
+    </script>
+
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/jquery.loadTemplate.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib//bootstrap.min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
