@@ -1,8 +1,13 @@
 $( document ).ready(function() {
 
-  var data;
+  var aptData;
 
   function removeApt(aptID) {
+    var whichApt = _.find(aptData, function(item){
+      return item.id === aptID; 
+    });
+
+    aptData = _.without(aptData, whichApt);
   }
 
   function listAppointments(info) {
@@ -11,8 +16,7 @@ $( document ).ready(function() {
         $( '.pet-delete' ).on( 'click', function() {
           var whichItem = $(this).attr('id');
           $(this).parents('.pet-item').hide(300, function() {
-            console.log(whichItem);
-            removeApt( whichItem );
+            removeApt(whichItem);
             $(this).remove();
             });
         });
@@ -25,6 +29,7 @@ $( document ).ready(function() {
     context: document.body,
     dataType: 'JSON'
   }).done(function(data) {
+    aptData = data;
     listAppointments(data);
   });
 
