@@ -46,8 +46,7 @@
           <label class="col-md-2 col-form-label text-md-right" for="petOwner">Pet Owner</label>
           <div class="col-md-10">
             <input type="text" class="form-control"
-              id="petOwner" placeholder="Owner's Name" 
-              v-model="formData.petOwner">
+              id="petOwner" placeholder="Owner's Name">
           </div><!-- col-md-10 -->
         </div><!-- form-group --> 
 
@@ -65,8 +64,7 @@
         <div class="form-group form-row">
           <label class="col-md-2 text-md-right" for="aptNotes">Apt. Notes</label>
           <div class="col-md-10">
-            <textarea class="form-control" rows="4" cols="50" id="aptNotes" placeholder="Appointment Notes" 
-            v-model="formData.aptNotes"></textarea>
+            <textarea class="form-control" rows="4" cols="50" id="aptNotes" placeholder="Appointment Notes"></textarea>
           </div><!-- col-md-10 --> 
         </div><!-- form-group -->
 
@@ -83,26 +81,19 @@
   <div class="search-appointments row justify-content-center my-4">
     <div class="col-md-6">
       <div class="input-group">
-        <input id="SearchApts" placeholder="Search" type="text" class="form-control" aria-label="Search Appointments"
-          v-model="searchTerm">
+        <input id="SearchApts" placeholder="Search" type="text" class="form-control" aria-label="Search Appointments">
         <div class="input-group-append">
           <button type="button" class="btn btn-primary dropdown-toggle"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by: <span class="caret"></span>
           </button>
 
-          <ul class="dropdown-menu dropdown-menu-right">
-
-            <a class="dropdown-item" href="#" id="petName">Pet Name <i class="fas fa-check"></i></a>
-
-            <a class="dropdown-item" href="#" id="aptDate">Date <i class="fas fa-check"></i></a>
-
-            <a class="dropdown-item" href="#" id="ownerName">Owner <i class="fas fa-check"></i></a>
-
+          <ul class="sort-by dropdown-menu dropdown-menu-right">
+            <a class="sort-by dropdown-item active" href="#" id="petName">Pet Name</a>
+            <a class="sort-by dropdown-item" href="#" id="aptDate">Date</a>
+            <a class="sort-by dropdown-item" href="#" id="ownerName">Owner</a>
             <div role="separator" class="dropdown-divider"></div>
-
-            <a class="dropdown-item" href="#" id="asc">Asc <i class="fas fa-check"></i></a>
-
-            <a class="dropdown-item" href="#" id="desc">Desc <i class="fas fa-check"></i></a>
+            <a class="sort-dir dropdown-item active" href="#" id="asc">Asc</a>
+            <a class="sort-dir dropdown-item" href="#" id="desc">Desc</a>
           </ul>
         </div><!-- input-group-btn --> 
       </div><!-- input-group --> 

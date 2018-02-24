@@ -82,3 +82,7 @@ footer a:hover {
 .appointment-list .apt-notes {
   line-height: 120%;
 }
+
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #a9aeb2;
+}
