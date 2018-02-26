@@ -5,29 +5,34 @@ $( document ).ready(function() {
   sortBy = 'aptDate';
   sortDir = 'desc';
 
+  // FUNCTIONS
   function removeApt(aptID) {
     var whichApt = _.find(aptData, function(item){
       return item.id === aptID; 
     });
     aptData = _.without(aptData, whichApt);
     displayData = aptData;
-    console.log(aptData);
   }
 
-  function listAppointments(info) {
-    if (sortDir === 'asc') {
-      info = _.sortBy(info, sortBy);
-    } else  {
-      info = _.sortBy(info, sortBy).reverse();
-    }
+// LIST APPOINTMENTS
+function listAppointments(info) {
+  if (sortDir === 'asc') {
+    info = _.sortBy(info, sortBy);
+  } else  {
+    info = _.sortBy(info, sortBy).reverse();
+  }
 
+    // Create a formatter for dates
     $.addTemplateFormatter("formatDate",
     function(value, template) {
         return $.format.date(new Date(value), 'MM/dd hh:mm p');
-    });
+    }); //date formatter
 
+    // Load the template
     $('#petList').loadTemplate('appointment-list.html', info, {
       complete: function() {
+
+        //Delete an Item
         $( '.pet-delete' ).on( 'click', function() {
           var whichItem = $(this).parents('.pet-item').attr('id');
           $(this).parents('.pet-item').hide(300, function() {
@@ -36,17 +41,21 @@ $( document ).ready(function() {
           }); //animation
         }); //delete a pet
         
+        // Change in Editable Content box
         $('[contenteditable]').on('blur', function() {
-          var whichItem = $(this).parents('.pet-item').attr('id');          
-          var whichApt = _.indexOf(aptData, whichItem.id);
-          console.log(whichApt);
+          var whichID, fieldName, fieldData;
+          whichID = Number($(this).parents('.pet-item').attr('id'));
+          fieldName = $(this).attr('id').replace(/field-/g, '');
+          fieldData = $(this).text();
+          aptData[whichID][fieldName] = fieldData;
         });
-      
 
       } // load complete
     }); //load template
   }
 
+
+  // READ DATA
   $.ajax({
     url: "js/data.json",
     context: document.body,
@@ -54,14 +63,16 @@ $( document ).ready(function() {
   }).done(function(data) {
     aptData = displayData = data;
     listAppointments(displayData);
-  });
+  }); //Read Data
 
   // EVENTS
 
+  //Toolbar Clicked
   $('.apt-addheading').on( 'click', function() {
     $('.card-body').toggle(300);
-  });
+  }); //Toolbar Clicked
 
+  // Dropdown Activated
   $('.sort-by .dropdown-item').on( 'click', function() {
     var sortDropdown = $(this).attr('id');
 
@@ -90,8 +101,9 @@ $( document ).ready(function() {
     $(this).addClass('active');
 
     listAppointments(displayData);
-  });
+  }); // Dropdown activated
 
+  // Typing in search box
   $('#SearchApts').keyup(function() {
     var searchText = $(this).val();
     displayData = _.filter(aptData, function(item){ 
@@ -100,8 +112,9 @@ $( document ).ready(function() {
       (item.aptNotes.toLowerCase().match(searchText.toLowerCase()))
     });
     listAppointments(displayData);
-  });
+  }); //Search Box
 
+  // Submit form
   $( "#aptForm" ).submit(function( e ) {
     var newItem = {};
     e.preventDefault();
@@ -114,8 +127,6 @@ $( document ).ready(function() {
     listAppointments(displayData);
     $( "#aptForm" )[0].reset();
     $('.card-body').hide(300);
-  });
-    
-
+  }); //Submit form
+  
 });
-
