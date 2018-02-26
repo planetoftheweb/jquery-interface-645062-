@@ -1,4 +1,4 @@
-<div class="pet-item col media py-3">
+<div class="pet-item col media py-3" data-id="id">
   <div class="mr-3">
     <button data-id="id" class="pet-delete btn btn-sm btn-danger">
     <i class="fas fa-times"></i></button>
@@ -10,13 +10,13 @@
       <span class="pet-name" contenteditable="true"
         data-content="petName"></span>
       <span class="apt-date ml-auto"
-        data-content="aptDate"></span>
+        data-format="formatDate" data-content="aptDate"></span>
     </div><!-- pet-head -->
 
     <div class="owner-name">
       <span class="label-item">Owner:</span>
       <span contenteditable="true"
-        data-content="ownerName"></span>
+       data-content="ownerName"></span>
     </div>
     <div class="apt-notes" contenteditable="true"
       data-content="aptNotes"></div>

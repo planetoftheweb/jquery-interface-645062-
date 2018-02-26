@@ -19,34 +19,27 @@
 <!-- App Starts Here -->
 <div id="main-app">
 
-  <div class="card textcenter mt-3">
+  <div class="add-appointment card textcenter">
     <div class="apt-addheading card-header bg-primary text-white">
       <i class="fas fa-plus"></i> Add Appointment
     </div><!-- card-header -->
 
     <div class="card-body">
 
-      <form class="add-appointment">
-
-        <div class="form-group form-row">
-          <label for="inputEmail3" class="col-md-2 col-form-label text-md-right">Email</label>
-          <div class="col-md-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-          </div>
-        </div>
+      <form id="aptForm">
       
         <div class="form-group form-row">
           <label class="col-md-2 col-form-label text-md-right" for="petName">Pet Name</label>
           <div class="col-md-10">
-            <input type="text" class="form-control" id="petName" placeholder="Pet's Name">
+            <input type="text" class="form-control" name="petName" id="petName" placeholder="Pet's Name">
           </div><!-- col-md-10 --> 
         </div><!-- form-group --> 
 
         <div class="form-group form-row">
-          <label class="col-md-2 col-form-label text-md-right" for="petOwner">Pet Owner</label>
+          <label class="col-md-2 col-form-label text-md-right" name="ownerName" for="ownerName">Pet Owner</label>
           <div class="col-md-10">
             <input type="text" class="form-control"
-              id="petOwner" placeholder="Owner's Name">
+              id="ownerName" placeholder="Owner's Name">
           </div><!-- col-md-10 -->
         </div><!-- form-group --> 
 
@@ -57,14 +50,14 @@
           </div><!-- col-md-4 --> 
           <label class="col-md-2 col-form-label text-md-right" for="aptTime">Time</label>
           <div class="col-md-4">
-            <input type="time" class="form-control" id="aptTime" >
+            <input type="time" class="form-control" name="aptTime" id="aptTime">
           </div><!-- col-md-4 --> 
         </div><!-- form-group -->
 
         <div class="form-group form-row">
           <label class="col-md-2 text-md-right" for="aptNotes">Apt. Notes</label>
           <div class="col-md-10">
-            <textarea class="form-control" rows="4" cols="50" id="aptNotes" placeholder="Appointment Notes"></textarea>
+            <textarea class="form-control" rows="4" cols="50" name="aptNotes" id="aptNotes" placeholder="Appointment Notes"></textarea>
           </div><!-- col-md-10 --> 
         </div><!-- form-group -->
 
@@ -88,12 +81,12 @@
           </button>
 
           <ul class="sort-by dropdown-menu dropdown-menu-right">
-            <a class="sort-by dropdown-item active" href="#" id="petName">Pet Name</a>
-            <a class="sort-by dropdown-item" href="#" id="aptDate">Date</a>
-            <a class="sort-by dropdown-item" href="#" id="ownerName">Owner</a>
+            <a class="sort-by dropdown-item" href="#" id="sort-petName">Pet Name</a>
+            <a class="sort-by dropdown-item active" href="#" id="sort-aptDate">Date</a>
+            <a class="sort-by dropdown-item" href="#" id="sort-ownerName">Owner</a>
             <div role="separator" class="dropdown-divider"></div>
-            <a class="sort-dir dropdown-item active" href="#" id="asc">Asc</a>
-            <a class="sort-dir dropdown-item" href="#" id="desc">Desc</a>
+            <a class="sort-dir dropdown-item" href="#" id="sort-asc">Asc</a>
+            <a class="sort-dir dropdown-item active" href="#" id="sort-desc">Desc</a>
           </ul>
         </div><!-- input-group-btn --> 
       </div><!-- input-group --> 
@@ -127,6 +120,6 @@
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib//bootstrap.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
