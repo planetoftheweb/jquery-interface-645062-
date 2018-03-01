@@ -10,8 +10,7 @@
   </head>
   <body class="bg-primary">
     <header class="container text-white"><h4 class="py-2">Wisdom Pet Medicine</h4></header>
-    <div class="main bg-white">
-      <main class="page" id="petratings">
+      <main class="page bg-white" id="petratings">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
@@ -19,10 +18,10 @@
 <!-- App Starts Here -->
 <div id="main-app">
 
-  <div class="add-appointment card textcenter">
+  <div class="add-appointment card textcenter mt-3">
     <div class="apt-addheading card-header bg-primary text-white">
       <i class="fas fa-plus"></i> Add Appointment
-    </div><!-- card-header -->
+    </div><!-- card-header git-->
 
     <div class="card-body">
 
@@ -36,7 +35,8 @@
         </div><!-- form-group --> 
 
         <div class="form-group form-row">
-          <label class="col-md-2 col-form-label text-md-right" name="ownerName" for="ownerName">Pet Owner</label>
+          <label class="col-md-2 col-form-label text-md-right"
+            for="ownerName">Pet Owner</label>
           <div class="col-md-10">
             <input type="text" class="form-control"
               id="ownerName" placeholder="Owner's Name">
@@ -80,21 +80,20 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by: <span class="caret"></span>
           </button>
 
-          <ul class="sort-by dropdown-menu dropdown-menu-right">
+          <div class="sort-by dropdown-menu dropdown-menu-right">
             <a class="sort-by dropdown-item" href="#" id="sort-petName">Pet Name</a>
             <a class="sort-by dropdown-item active" href="#" id="sort-aptDate">Date</a>
             <a class="sort-by dropdown-item" href="#" id="sort-ownerName">Owner</a>
             <div role="separator" class="dropdown-divider"></div>
             <a class="sort-dir dropdown-item" href="#" id="sort-asc">Asc</a>
             <a class="sort-dir dropdown-item active" href="#" id="sort-desc">Desc</a>
-          </ul>
+          </div>
         </div><!-- input-group-btn --> 
       </div><!-- input-group --> 
     </div><!-- col-md-offset-3 --> 
   </div><!-- search-appointments -->
 
   <div id="petList" class="appointment-list item-list mb-3">
-
 
       <div class="pet-item col media py-3">
           <div class="mr-3">
@@ -129,28 +128,27 @@
           </div><!-- pet-info -->
         </div><!-- pet-item -->
 
+      </div><!-- appointment-list -->
+
+    </div><!-- main-app -->
+    <!-- App Ends Here -->
     
-  </div><!-- appointment-list -->
-
-</div><!-- main-app -->
-<!-- App Ends Here -->
-
-            </div><!-- col-md-12 -->
-          </div><!-- row -->
-        </div><!-- container -->
-    </main><!-- main -->
-
-    <footer class="container d-flex text-white py-2">
-        <p>All contents &copy; 2018 <a href="http://lynda.com">Lynda.com</a>. All rights reserved.</p>
-      <div class="ml-auto">
-        <a class="d-block" href="#">Terms of use</a>
-        <a class="d-block" href="#">Privacy policy</a>
-      </div><!-- col-md-6 -->
-    </footer><!-- footer -->
-
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/popper.min.js"></script>
-    <script src="js/lib//bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-  </body>
-</html>
+                </div><!-- col-md-12 -->
+              </div><!-- row -->
+            </div><!-- container -->
+        </main><!-- main -->
+        <footer class="container d-flex text-white py-2">
+            <p>All contents &copy; 2018 <a href="http://lynda.com">Lynda.com</a>. All rights reserved.</p>
+          <div class="ml-auto">
+            <a class="d-block" href="#">Terms of use</a>
+            <a class="d-block" href="#">Privacy policy</a>
+          </div><!-- col-md-6 -->
+        </footer><!-- footer -->
+    
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/popper.min.js"></script>
+        <script src="js/lib//bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
+      </body>
+    </html>
+    
