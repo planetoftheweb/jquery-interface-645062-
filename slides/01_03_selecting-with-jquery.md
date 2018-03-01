@@ -55,6 +55,7 @@ $('.apt-addheading').on( 'click', function() {
   $('.card-body').toggle(300);
 }); //Toolbar Clicked
 
+
 Let's modify our CSS so our form starts out hidden.
 
 ```
@@ -71,6 +72,11 @@ Let's modify our CSS so our form starts out hidden.
 }
 ```
 
+We can add a bit of flair by delaying the toggle and passing it a value for how long it should take to toggle the form. Every jQuery method has lots of options that you can pass along.
+
+```
+$('.card-body').toggle(300);
+```
 
 ## Conclusion
 It's smart to use the ready method to wait for the DOM to become safe to use and as you can see jQuery gives you a lot of options for doing selections and managing events. For more information on the selectors and methods, take a look at the jQuery documentation at this URL. We'll be covering a lot more of them in this course.
