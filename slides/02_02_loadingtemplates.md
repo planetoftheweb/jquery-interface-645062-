@@ -8,6 +8,8 @@ We're going to use a popular templating system called [jQuery Template](http://c
 
 We'll get started by adding the code the call to this library from our index.html file. I've already loaded the plugin for you into the js/lib folder.
 
+<script src="js/lib/jquery.loadTemplate.min.js"></script>
+
 Most of the code that needs to go into our template is sitting in the main index file. In order to declare it as our template, you can see that jQuery let's you use a script tag to define our template or you can import the template as a separate file.
 
 ```
