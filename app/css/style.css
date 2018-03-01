@@ -42,11 +42,6 @@ footer a:hover {
   border: inherit;
 }
 
-
-.add-appointment .card-body {
-  display: none;
-}
-
 .add-appointment label {
   font-weight: 700;
 }
