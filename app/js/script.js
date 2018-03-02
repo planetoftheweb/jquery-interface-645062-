@@ -1,6 +1,9 @@
 $(function() {
 
-  var aptData;
+  var aptData, sortBy, sortDir;
+
+  sortBy = 'petName';
+  sortDir = 'asc';
 
   //FUNCTIONS
   function removeApt(aptID) {
@@ -10,13 +13,14 @@ $(function() {
     aptData = _.without(aptData, whichApt);
   }
 
-  //READ DATA
-  $.ajax({
-    url: 'js/data.json'
-  }).done(function(data) {
-    aptData = data;
+  function listAppointments(info) {
+    if (sortDir === 'asc') {
+      info = _.sortBy(info, sortBy);
+    } else  {
+      info = _.sortBy(info, sortBy).reverse();
+    }
 
-    $('#petList').loadTemplate('appointment-list.html', data, {
+    $('#petList').loadTemplate('appointment-list.html', info, {
       complete: function() {
         $('.pet-delete').on('click', function() {
           $(this).parents('.pet-item').hide(300, function() {
@@ -28,9 +32,15 @@ $(function() {
           });
         }); //delete apt
       } // complete
-    }); //load template
+    }); //load template    
+  }
 
-
+  //READ DATA
+  $.ajax({
+    url: 'js/data.json'
+  }).done(function(data) {
+    aptData = data;
+    listAppointments(aptData);
   }); //ajax loaded
 
   //EVENTS
@@ -38,5 +48,6 @@ $(function() {
   $('.apt-addheading').on('click',function() {
     $('.card-body').toggle(300);
   }); // click on add appointment
+
 
 }); // Document is ready
