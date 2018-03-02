@@ -49,4 +49,35 @@ $(function() {
     $('.card-body').toggle(300);
   }); // click on add appointment
 
+
+  $('.sort-menu .dropdown-item').on('click', function() {
+    var sortDropDown = $(this).attr('id');
+
+    switch (sortDropDown) {
+      case 'sort-petName':
+        $('.sort-by').removeClass('active');
+        sortBy = 'petName';
+        break;
+      case 'sort-ownerName':
+        $('.sort-by').removeClass('active');
+        sortBy = 'ownerName';
+        break;
+      case 'sort-aptDate':
+        $('.sort-by').removeClass('active');
+        sortBy = 'aptDate';
+        break;
+      case 'sort-asc':
+        $('.sort-dir').removeClass('active');
+        sortDir = 'asc';
+        break;
+      case 'sort-desc':
+        $('.sort-dir').removeClass('active');
+        sortDir = 'desc';
+        break;
+    }
+
+    $(this).addClass('active');
+    listAppointments(aptData);
+  });
+
 }); // Document is ready
