@@ -1,6 +1,6 @@
 $(function() {
 
-  var aptData, sortBy, sortDir;
+  var aptData, displayData, sortBy, sortDir;
 
   sortBy = 'aptDate';
   sortDir = 'desc';
@@ -11,6 +11,7 @@ $(function() {
       return item.id == aptID;
     });
     aptData = _.without(aptData, whichApt);
+    displayData = _.without(displayData, whichApt);
   }
 
   function listAppointments(info) {
@@ -39,8 +40,8 @@ $(function() {
   $.ajax({
     url: 'js/data.json'
   }).done(function(data) {
-    aptData = data;
-    listAppointments(aptData);
+    aptData = displayData = data;
+    listAppointments(displayData);
   }); //ajax loaded
 
   //EVENTS
@@ -78,14 +79,14 @@ $(function() {
     }
 
     $(this).addClass('active');
-    listAppointments(aptData);
+    listAppointments(displayData);
   });
 
   // Typed in search box
   $('#SearchApts').keyup(function() {
     var searchText = $(this).val();
 
-    aptData = _.filter(aptData, function(item) {
+    displayData = _.filter(aptData, function(item) {
       return (
         item.petName.toLowerCase().match(searchText.toLowerCase()) || 
         item.ownerName.toLowerCase().match(searchText.toLowerCase()) || 
@@ -93,7 +94,7 @@ $(function() {
       )
     }); // filter
 
-    listAppointments(aptData);
+    listAppointments(displayData);
   }); //keyup on search
 
 }); // Document is ready
