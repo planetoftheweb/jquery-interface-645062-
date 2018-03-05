@@ -101,4 +101,19 @@ $(function() {
     listAppointments(displayData);
   }); //keyup on search
 
+  $('#aptForm').submit( function(e) {
+    var newItem = {};
+    e.preventDefault();
+
+    newItem.petName = $('#petName').val();
+    newItem.ownerName = $('#ownerName').val();
+    newItem.aptDate = $('#aptDate').val();
+    newItem.aptNotes = $('#aptNotes').val();
+
+    aptData.push(newItem);
+    listAppointments(displayData);
+    $('#aptForm')[0].reset();
+    $('.card-body').hide(300);
+  }); // Submit Form
+
 }); // Document is ready
