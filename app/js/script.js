@@ -45,11 +45,12 @@ $(function() {
 
   //EVENTS
 
+  // click on add appointment
   $('.apt-addheading').on('click',function() {
     $('.card-body').toggle(300);
   }); // click on add appointment
 
-
+  // click on dropdown menu item
   $('.sort-menu .dropdown-item').on('click', function() {
     var sortDropDown = $(this).attr('id');
 
@@ -79,5 +80,20 @@ $(function() {
     $(this).addClass('active');
     listAppointments(aptData);
   });
+
+  // Typed in search box
+  $('#SearchApts').keyup(function() {
+    var searchText = $(this).val();
+
+    aptData = _.filter(aptData, function(item) {
+      return (
+        item.petName.toLowerCase().match(searchText.toLowerCase()) || 
+        item.ownerName.toLowerCase().match(searchText.toLowerCase()) || 
+        item.aptNotes.toLowerCase().match(searchText.toLowerCase())       
+      )
+    }); // filter
+
+    listAppointments(aptData);
+  }); //keyup on search
 
 }); // Document is ready
