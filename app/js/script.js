@@ -22,6 +22,10 @@ $(function() {
       info = _.sortBy(info, sortBy).reverse()
     }
 
+    $.addTemplateFormatter('formatDate', function(value) {
+      return $.format.date(new Date(value), 'MM/dd hh:mm p' );
+    }); //date formatter
+
     $('#petList').loadTemplate('appointment-list.html', info, {
       complete: function() {
         $('.pet-delete').on('click', function() {
