@@ -38,12 +38,11 @@ $(function() {
 
         $('[contenteditable]').on('blur', function() {
           var whichID, fieldName, fieldData;
-
           whichID = Number($(this).parents('.pet-item').attr('id'));
-          fieldName = $(this).attr('id').replace(/field-/g, '');
+          fieldName = $(this).data('field');
           fieldData = $(this).text();
           aptData[whichID][fieldName] = fieldData;
-        }); // contentedtiable blur
+        }); // contenteditable on blur
 
       } // complete
     }); //load template    
