@@ -4,3 +4,4 @@
 02_02_loadingtemplates
 02_03 Managing Template Events
 02_04 Modifying Data
+03_01 Sorting Items
