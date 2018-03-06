@@ -32,10 +32,19 @@ $(function() {
           $(this).parents('.pet-item').hide(300, function() {
             var whichItem = $(this).attr('id');
             removeApt(whichItem);
-            console.log(aptData);
             $(this).remove();  
           });
         }); //delete apt
+
+        $('[contenteditable]').on('blur', function() {
+          var whichID, fieldName, fieldData;
+
+          whichID = Number($(this).parents('.pet-item').attr('id'));
+          fieldName = $(this).attr('id').replace(/field-/g, '');
+          fieldData = $(this).text();
+          aptData[whichID][fieldName] = fieldData;
+        }); // contentedtiable blur
+
       } // complete
     }); //load template    
   }
