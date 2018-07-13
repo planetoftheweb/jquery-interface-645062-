@@ -7,7 +7,7 @@ Create an interactive user interface that uses the strengths of jQuery, Bootstra
 
 # Instructions
 
-[![Branches](http://www.raybo.org/assets/images/courses/jqueryinterface.jpg)](http://pixelprowess.com/i/2018-07-13_14-10-12.png)
+![Branches](http://pixelprowess.com/i/2018-07-13_14-10-12.png)
 
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage. Or you can simply add `/tree/BRANCH_NAME` to the URL to go to the branch you want to peek at.
 
@@ -29,8 +29,8 @@ The best way to download use this course is to download all of the branches to y
 
 ### Cloning a Bare Repository
 1. Clone a bare copy of this repository git clone --bare `path/to/repo.git .git` (make sure you add extra the .git at the end). You can copy the path to the repo from the clone or download button above.
-1. git config --bool core.bare false
-1. git reset --hard 
+1. `git config --bool core.bare false`
+1. `git reset --hard `
 
 ### Install Dependencies
 1. Install project dependencies using npm: `npm install`
